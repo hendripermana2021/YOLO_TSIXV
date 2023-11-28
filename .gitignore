@@ -1,0 +1,4 @@
+*.mp4
+Parking/
+.vscode/
+__pycache__/

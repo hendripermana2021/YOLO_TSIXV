@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "causal-flame-377209",
+  "private_key_id": "8acec0cc5421349959344b9e2fa5b18dab8eb985",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDIrV1bER5r3Bn\n2eYz+zy+0C5iGLtmRdFcGHrlxR5tc8/sT5cKCQGVb9WoXkKjSKyUSiAQ44vM9uQL\n9fqlV90SsfHjo/OHjRHoBcvRysk+dtOWacc0CIDQr2EGU6zSwIz+3WNZsMWT2nV9\naTAfslBNXAgeBlJLmXsh+yhbYurckd/M1lNCHKQYTLqpb5TSVMmYv7fB2fdPWAnX\npOgYZiAzkUYNMvzeXkG993SeFnUAoi/FpmfT8o+3bRxO4TBJUjFeH8fGDb40yAUL\npVCC44VoemY22z8qJ8XqLQfwJMHYBoZBs59XYjrwdwVmnr/QMuvncSC2yqnYXuio\nE46qxcBRAgMBAAECggEASR8CfEPbzPVu25uNZcEpXB9Koju+TW6wKyCJPPyGkGEr\nctPIN1x0mXjUyUi5E9KxyMeWCH4b7uw9PDYqfDbWgqDnkXPoV80G/rjdTXn9u0hv\ntRdiLB9bldeCNgq44iiBLSfsiLly8BqWmC4IeHgrGzH3YLjhsa6Ls4oX71a7x3bC\nX/Rwmxu6zAoORDFQmM0/DCPPjoQXu2+JXzOAyFv1KQMNfyeCkaTnrjfETnFD5v7T\nGoYdEZ8yxk/L/wIt4alCgp4KPx06oLWm2IasNmckvaHvK35RfB14Up2AtPAwEQCq\nC8yxlXVPaFBs8TB4v4qyIcAJSW4IUwlVFW3McbVMWQKBgQDt09/c4IhS84qHuHmC\nKlCMuddP4dQsPRam/AfOtJ/ecey0jQz+SO4h6z/GZGGelzb6rdLX6DGWT+FXswb5\nqcjeKj2koZYlVWZGYjdegqXiCffFWsOBF1yVgnW7uXKFSHCowymfWAzdrMJIzEZB\nPb/jmwZgGI+BRP9TkSn9vlXdGwKBgQDSC70kzifHtkXgJhvSS6NVxTaiBLhGiqnp\nourNVeGtg0L4gukpP7FzNLDbjFAinFgmltgh3SgxCJ3HKi8Zf9WruiSCnfUbwsD3\nCNvJ9d1o8Xxi4f+MQvcCHs9tNl/KbFf5wpofVM2sLivPlEOVfAr6/hDyWPqnzbYa\nUzKERgwLAwKBgQCB3THeYFTQRuAcICVpaEW3sjraCcxbo7fc0r5IpuStCLRiGqs/\npv8xUk3uvR15BcUluQjqkIWTOGcqBj4G0ik29wXWAc4E8M76G+N0Hg8KkLrU7yzW\nLrWFhklXinn4QYgS/w6ZTfEoko88RR8PvPItDJe8nWyu/8gUD65IOkiUhQKBgQCl\nZncH/4rVuhOmIXwxCjzRcp3F0X+mlNSd1Ruem+09bCqVdMjUIYLDnI9UI1aLGqBT\nqt8BM5zNl+JejjpOkxqXwtmzPV1hAehf30rr6z7xv49acmqAcc7+jXJ7pqChztUs\nKPCikW3wEt+O80qQ8P/Yi66emDCxaMzoR/F0tZAQLwKBgBvG8sGUdgSUlKzrqkC4\ngJW54m8IyixXIIySqOhQCdboov16oLPc9MhZtnzEC7pgrSnt1TLqb6rNt8IdSWbE\nsFX42nyBIS7ZuuyhzeDKJGRFTkF7+XV2FGBCvyu8qqObD3fWvLFHa6sBz2zTyjrp\nE+0yV4rkXNQHO+HJxiuRP787\n-----END PRIVATE KEY-----\n",
+  "client_email": "jhonatur15-students-unnes-ac-i@causal-flame-377209.iam.gserviceaccount.com",
+  "client_id": "103229469129507059446",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jhonatur15-students-unnes-ac-i%40causal-flame-377209.iam.gserviceaccount.com"
+}
