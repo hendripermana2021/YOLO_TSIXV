@@ -1,4 +1,4 @@
-# SPARK (Detect empty parking to make Mobilization easier)
+# SPARK (Space Parking Analyzer with Real-time Knowledge)
 
 ## Project Description
 Please describe your Startup Campus final project here. You may should your <b>model architecture</b> in JPEG or GIF.
@@ -111,9 +111,13 @@ Provide a link to your short video, that should includes the project background 
 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
-- Link: https://...
-- Link: https://...
-- Link: https://...
+- Link: [Official YOLOV5 repository](https://github.com/ultralytics/yolov5/)
+- Link: [yolov5-improvements-and-evaluation, Roboflow](https://blog.roboflow.com/yolov5-improvements-and-evaluation/)
+- Link: [Focus layer in YOLOV5]( https://github.com/ultralytics/yolov5/discussions/3181)
+- Link: [CrossStagePartial Network](https://github.com/WongKinYiu/CrossStagePartialNetworkss)
+- Link: [CSPNet: A new backbone that can enhance learning capability of cnn](https://arxiv.org/abs/1911.11929)- Link: [Path aggregation network for instance segmentation](https://arxiv.org/abs/1803.01534)
+- Link: [Efficientnet-lite quantization](https://blog.tensorflow.org/2020/03/higher-accuracy-on-vision-models-with-efficientnet-lite.html)
+- Link: [YOLOv5 Training video from Texas Instruments](https://training.ti.com/process-efficient-object-detection-using-yolov5-and-tda4x-processors)
 
 ## Additional Comments
 Provide your team's additional comments or final remarks for this project. For example,
@@ -133,4 +137,4 @@ If you find this project useful, we'd grateful if you cite this repository:
 For academic and non-commercial use only.
 
 ## Acknowledgement
-This project entitled <b>"YOUR PROJECT TITLE HERE"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
+This project entitled <b>"SPARK ()"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
