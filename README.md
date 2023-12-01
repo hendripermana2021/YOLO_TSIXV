@@ -1,7 +1,7 @@
-# SPARK (Space Parking Analyzer with Real-time Knowledge)
+# SPARK (Smart Monitoring Parking)
 
 ## Project Description
-(Space Parking Analyzer with Real-time Knowledge) is a project that aims to develop an intelligent system that can detect and analyze empty parking spaces. In a dense urban environment, finding a parking space can be a challenging and time-consuming task. SPARK is designed to provide an efficient, real-time solution to address these problems by leveraging computer vision and artificial intelligence technologies. uses YOLO as Object Detection modeling which will be applied to application projects, but there are several modifications made to the architecture, with the aim of developing a model that is more efficient, precise and lighter.
+(Smart Monitoring Parking) is a project that aims to develop an intelligent system that can detect and analyze empty parking spaces. In a dense urban environment, finding a parking space can be a challenging and time-consuming task. SPARK is designed to provide an efficient, real-time solution to address these problems by leveraging computer vision and artificial intelligence technologies. uses YOLO as Object Detection modeling which will be applied to application projects, but there are several modifications made to the architecture, with the aim of developing a model that is more efficient, precise and lighter.
 
 * YOLOV5-ti-lite is a version of YOLOV5 from TI for efficient edge deployment. This naming convention is chosen to avoid conflict with future release of YOLOV5-lite models from Ultralytics.
 
@@ -67,7 +67,7 @@
 | Another Environment | Google Colab for Train |
 
 ## Dataset
-The dataset collection process was carried out through a collective effort that involved taking photos from various sources, including images found on the internet, videos from the YouTube platform, and photos taken directly using a camera. In order to provide an overview, we include an example of one of the images that has been collected, which includes photos obtained online or through direct shooting.
+The dataset collection process was carried out through a collective effort that involved taking photos from various sources, including images found on the internet, videos from the YouTube platform, and photos taken directly using a camera. In order to provide an overview, we include an example of one of the images that has been collected, which includes photos obtained online or through direct shooting. and annotation with Roboflow
 
 ### Example Image for Dataset
 | | | |
@@ -77,8 +77,7 @@ The dataset collection process was carried out through a collective effort that 
 
 ## Results
 ### Model Performance
-Describe all results found in your final project experiments, including hyperparameters tuning and architecture modification performances. Put it into table format. Please show pictures (of model accuracy, loss, etc.) for more clarity.
-Pada dasarnya YOLOv5 sudah memiliki performa yang sangat baik, dan sangat powerfull pada versi officialnya, namun hasil yang kami dapatkan ketika melakukan perubahan pada bagian head dan backbone pada konfigurasi layer dan parameter yang digunakan, dengan tujuan meningkatkan akurasi dan performa yang lebih ringan ketika dijalankan, karena task yang akan kami kerjakan dan diimplementasikan kedalam modeling tidaklah banyak yaitu hanya mendeteksi mobil, sehingga kami mengubah focus dan SPP Modul,
+Fundamentally, YOLOv5 has achieved very outstanding performance and has become very powerful in its official version. However, our exploration results show that when we made adjustments to the head and backbone in the layer configuration and parameters, we managed to achieve significant improvements in accuracy and more efficient model performance when running. This was primarily done by focusing the changes on the specific task we wanted to work on, namely car detection. We have directed the modifications towards improving the focus and SPP (Spatial Pyramid Pooling) module, aiming to ensure that our model provides optimal results and efficiently handles the task specifications.
 
 ### Adding Parameters tuning for enhance model (adding to configuration yaml)
 <p align="center"><img width="500" src="models/parameterTuning.png"></p>
@@ -123,8 +122,7 @@ These parameters play a crucial role in shaping the training process and influen
 | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 #### 2. Ablation Study
-Any improvements or modifications of your base model, should be summarized in this table. Feel free to adjust the columns in the table below.
-Di dalam segmen ini, kami secara rinci mendokumentasikan serangkaian lapisan (layer) yang kami terapkan selama percobaan kami, dengan tujuan untuk mencapai hasil akurasi paling optimal. Namun sebelumnya kami ingin menjelaskan istilah/ simbol yang akan kami gunakan dalam penjelasan pada segment kali ini :
+In this segment, we carefully detail the series of layers that we applied during our experiments, with the main goal of achieving the most optimal accuracy results. As a first step, we will provide an in-depth explanation of the terms and symbols that we will use in the explanation in this section. This is done with the intention that readers have a better understanding before entering a detailed explanation regarding the layer configuration in our experiments.
 - f = filter
 - k = kernel 
 - s = stride
@@ -132,18 +130,18 @@ Di dalam segmen ini, kami secara rinci mendokumentasikan serangkaian lapisan (la
 
 #### Backbone
 | no. ablation | model | layer 1 | layer 2 | layer 3 | layer 4 | layer 5 | layer 6 | layer 7 | layer 8 | layer 9 | layer 10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| 1. | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | C3(f=128) | Conv(f=256, k=3, s=2) | C3(f=256) | Conv(f=512, k=3, s=2) | C3(f=512) | Conv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | C3(f=1024, p=False] |
-| 2. | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | GhostBottleneck(f=256) | GhostConv(f=512, k=3, s=2) | GhostBottleneck(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
-| last | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | BottleneckCSP(f=256) | GhostConv(f=512, k=3, s=2) | BottleneckCSP(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
+| --- | --- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | 
+| 1. | yolov5s | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | C3(f=128) | Conv(f=256, k=3, s=2) | C3(f=256) | Conv(f=512, k=3, s=2) | C3(f=512) | Conv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | C3(f=1024, p=False] |
+| 2. | yolov5s | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | GhostBottleneck(f=256) | GhostConv(f=512, k=3, s=2) | GhostBottleneck(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
+| last | yolov5s | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | BottleneckCSP(f=256) | GhostConv(f=512, k=3, s=2) | BottleneckCSP(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
 
 
 #### Head
 | no. ablation | model | layer 1 | layer 2 | layer 3 | layer 4 | layer 5 | layer 6 | layer 7 | layer 8 | layer 9 | layer 10 | layer 11 | layer 12 | layer 13 | layer 14 | layer 15 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1. | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [256, False] | Conv, [256, 3, 2] | Concat, [1] | C3, [512, False] | Conv, [512, 3, 2] | Concat, [1] | C3, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
-| 2. | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | Conv, [256, 3, 2] | Concat, [1] | GhostBottleneck, [512, False] | Conv, [512, 3, 2] | Concat, [1] | GhostBottleneck, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
-| last | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | GhostConv, [256, 3, 2] | Concat, [1] | BottleneckCSP, [512, False] | GhostConv, [512, 3, 2] | Concat, [1] | BottleneckCSP, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+| --- | --- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| 1. | yolov5s | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [256, False] | Conv, [256, 3, 2] | Concat, [1] | C3, [512, False] | Conv, [512, 3, 2] | Concat, [1] | C3, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+| 2. | yolov5s | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | Conv, [256, 3, 2] | Concat, [1] | GhostBottleneck, [512, False] | Conv, [512, 3, 2] | Concat, [1] | GhostBottleneck, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+| last | yolov5s | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | GhostConv, [256, 3, 2] | Concat, [1] | BottleneckCSP, [512, False] | GhostConv, [512, 3, 2] | Concat, [1] | BottleneckCSP, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
 
 #### Precision and Validate
 Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan pertama hingga final model, dengan epoch 300 :
@@ -151,7 +149,7 @@ Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan
 | --- | --- | --- | --- |
 | 1. | yolov5s-lite | 93.10% | 88.85% | 
 | 2. | yolov5s-lite | 89.68% | 86.57% |
-| last | yolov5s-lite | 95.29% | 90.47% |
+| last | yolov5s-lite | 94.29% | 90.47% |
 
 #### 3. Training/Validation Curve
 Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
@@ -168,6 +166,11 @@ Insert an image regarding your training and evaluation performances (especially 
  
 ### Testing
 Show some implementations (demos) of this model. Show **at least 10 images** of how your model performs on the testing data.
+
+  ```
+  python detect.py --weights /content/YOLO_TSIXV/runs/train/weights/best.pt --img 256 --conf 0.4 --source pathImages
+  ```
+
 * Results Image Detection :
   
 | img | img | img |
@@ -184,10 +187,15 @@ Describe and show how you deploy this project (e.g., using Streamlit or Flask), 
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: [Our Presentation Deck TSixV](https://www.canva.com/design/DAF1gZBiWCE/ZBVEZ_8CgNBy8CK7QybmOA/edit?utm_content=DAF1gZBiWCE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- Link: [Our Presentation Deck TSixV](https://..)
 
 ### Business Model Canvas
 Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
+<details>
+  <summary>Click for See our BMC</summary>
+  <img src="data/images/BMC1.jpg" alt="Page1"/>
+  <img src="data/images/BMC2.jpg" alt="Page2"/>
+</details>
 
 ### Short Video
 Provide a link to your short video, that should includes the project background and how it works.
@@ -199,7 +207,8 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
 - Link: [yolov5-improvements-and-evaluation, Roboflow](https://blog.roboflow.com/yolov5-improvements-and-evaluation/)
 - Link: [Focus layer in YOLOV5]( https://github.com/ultralytics/yolov5/discussions/3181)
 - Link: [CrossStagePartial Network](https://github.com/WongKinYiu/CrossStagePartialNetworkss)
-- Link: [CSPNet: A new backbone that can enhance learning capability of cnn](https://arxiv.org/abs/1911.11929)- Link: [Path aggregation network for instance segmentation](https://arxiv.org/abs/1803.01534)
+- Link: [CSPNet: A new backbone that can enhance learning capability of cnn](https://arxiv.org/abs/1911.11929)
+- Link: [Path aggregation network for instance segmentation](https://arxiv.org/abs/1803.01534)
 - Link: [Efficientnet-lite quantization](https://blog.tensorflow.org/2020/03/higher-accuracy-on-vision-models-with-efficientnet-lite.html)
 - Link: [YOLOv5 Training video from Texas Instruments](https://training.ti.com/process-efficient-object-detection-using-yolov5-and-tda4x-processors)
 
@@ -270,4 +279,4 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
 For academic and non-commercial use only.
 
 ## Acknowledgement
-This project entitled <b>"SPARK (Space Parking Analyzer with Real-time Knowledge)"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
+This project entitled <b>"SPARK (Smart Monitoring Parking)"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
