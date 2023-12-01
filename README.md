@@ -131,21 +131,57 @@ Di dalam segmen ini, kami secara rinci mendokumentasikan serangkaian lapisan (la
 - s = stride
 - p = parameter
 
-#### Head
-| no. experiment | model | layer 1 | layer 2 | layer 3 | layer 4 | layer 5 | layer 6 | layer 7 | layer 8 | layer 9 | layer 10 |
+#### Backbone
+| no. ablation | model | layer 1 | layer 2 | layer 3 | layer 4 | layer 5 | layer 6 | layer 7 | layer 8 | layer 9 | layer 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | 1. | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | C3(f=128) | Conv(f=256, k=3, s=2) | C3(f=256) | Conv(f=512, k=3, s=2) | C3(f=512) | Conv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | C3(f=1024, p=False] |
 | 2. | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | GhostBottleneck(f=256) | GhostConv(f=512, k=3, s=2) | GhostBottleneck(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
 | last | yolov5s-lite | Focus(k=3, f=64) | Conv(k=3, f=128, s=2) | BottleneckCSP(f=128) | Conv(f=256, k=3, s=2) | BottleneckCSP(f=256) | GhostConv(f=512, k=3, s=2) | BottleneckCSP(f=512) | GhostConv(f=1024, k=3, s=2) | SPP(f=1024, k=(5, 9, 13)) | BottleneckCSP(f=1024, p=False] |
 
+
+#### Head
+| no. ablation | model | layer 1 | layer 2 | layer 3 | layer 4 | layer 5 | layer 6 | layer 7 | layer 8 | layer 9 | layer 10 | layer 11 | layer 12 | layer 13 | layer 14 | layer 15 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1. | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | C3, [256, False] | Conv, [256, 3, 2] | Concat, [1] | C3, [512, False] | Conv, [512, 3, 2] | Concat, [1] | C3, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+| 2. | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | Conv, [256, 3, 2] | Concat, [1] | GhostBottleneck, [512, False] | Conv, [512, 3, 2] | Concat, [1] | GhostBottleneck, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+| last | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | GhostConv, [256, 3, 2] | Concat, [1] | BottleneckCSP, [512, False] | GhostConv, [512, 3, 2] | Concat, [1] | BottleneckCSP, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
+
+#### Precision and Validate
+Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan pertama hingga final model, dengan epoch 100 :
+| no. ablation | model | val_precision | val_recall |
+| --- | --- | --- | --- |
+| 1. | yolov5s-lite | 93.10% | 88.85% | 
+| 2. | yolov5s-lite | 89.68% | 86.57% |
+| last | yolov5s-lite | 92.82% | 89.85% |
+
 #### 3. Training/Validation Curve
 Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
+* Training any model using this repo will take the above changes by default. Same commands as the official one can be used for training models from scartch. E.g.
+  ```
+  python train.py --data coco.yaml --cfg yolov5s6.yaml --weights '' --batch-size 64
+  ```
+
+* Results after training :
+
+| Epochs 100 | Epochs 300 |
+| --- | --- |
+| <p align="center"><img width="800" src="models/Result_ep100.png"></p> | <p align="center"><img width="800" src="models/Result_ep300.png"></p> |
  
 ### Testing
 Show some implementations (demos) of this model. Show **at least 10 images** of how your model performs on the testing data.
+* Results Image Detection :
+  
+| img | img | img |
+| --- | --- | --- |
+| <p align="center"><img width="500" src="data/images/val.jpg"></p> | <img width="500" src="data/images/val1.jpg"></p> | <img width="500" src="data/images/val2.jpg"></p> |
+| <p align="center"><img width="500" src="data/images/val3.jpg"></p> | <img width="500" src="data/images/val4.jpg"></p> | <img width="500" src="data/images/val5.jpg"></p> |
+| <p align="center"><img width="500" src="data/images/val6.jpg"></p> | <img width="500" src="data/images/val7.jpg"></p> | <img width="500" src="data/images/val8.jpg"></p> |
+| <p align="center"><img width="500" src="data/images/val9.jpg"></p> | <img width="500" src="data/images/val10.jpg"></p> | <img width="500" src="data/images/val11.jpg"></p> |
 
 ### Deployment (Optional)
 Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
+
+
 
 ## Supporting Documents
 ### Presentation Deck
