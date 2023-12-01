@@ -184,10 +184,15 @@ Describe and show how you deploy this project (e.g., using Streamlit or Flask), 
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: [Our Presentation Deck TSixV](https://www.canva.com/design/DAF1gZBiWCE/ZBVEZ_8CgNBy8CK7QybmOA/edit?utm_content=DAF1gZBiWCE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- Link: [Our Presentation Deck TSixV](https://..)
 
 ### Business Model Canvas
 Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
+<details>
+  <summary>Click for See our BMC</summary>
+  <img src="data/images/BMC1.jpg" alt="Page1"/>
+  <img src="data/images/BMC2.jpg" alt="Page2"/>
+</details>
 
 ### Short Video
 Provide a link to your short video, that should includes the project background and how it works.
@@ -199,7 +204,8 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
 - Link: [yolov5-improvements-and-evaluation, Roboflow](https://blog.roboflow.com/yolov5-improvements-and-evaluation/)
 - Link: [Focus layer in YOLOV5]( https://github.com/ultralytics/yolov5/discussions/3181)
 - Link: [CrossStagePartial Network](https://github.com/WongKinYiu/CrossStagePartialNetworkss)
-- Link: [CSPNet: A new backbone that can enhance learning capability of cnn](https://arxiv.org/abs/1911.11929)- Link: [Path aggregation network for instance segmentation](https://arxiv.org/abs/1803.01534)
+- Link: [CSPNet: A new backbone that can enhance learning capability of cnn](https://arxiv.org/abs/1911.11929)
+- Link: [Path aggregation network for instance segmentation](https://arxiv.org/abs/1803.01534)
 - Link: [Efficientnet-lite quantization](https://blog.tensorflow.org/2020/03/higher-accuracy-on-vision-models-with-efficientnet-lite.html)
 - Link: [YOLOv5 Training video from Texas Instruments](https://training.ti.com/process-efficient-object-detection-using-yolov5-and-tda4x-processors)
 
