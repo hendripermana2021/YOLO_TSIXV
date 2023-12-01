@@ -212,19 +212,24 @@ class C3Ghost(C3):
 
 
 class SPP(nn.Module):
-    # Spatial Pyramid Pooling (SPP) layer https://arxiv.org/abs/1406.4729
+    # Spatial pyramid pooling layer used in YOLOv3-SPP
     def __init__(self, c1, c2, k=(5, 9, 13)):
         super().__init__()
         c_ = c1 // 2  # hidden channels
         self.cv1 = Conv(c1, c_, 1, 1)
         self.cv2 = Conv(c_ * (len(k) + 1), c2, 1, 1)
-        self.m = nn.ModuleList([nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x in k])
+        num_3x3_maxpool = []
+        max_pool_module_list = []
+        for pool_kernel in k:
+            assert (pool_kernel-3)%2==0; "Required Kernel size cannot be implemented with kernel_size of 3"
+            num_3x3_maxpool = 1 + (pool_kernel-3)//2
+            max_pool_module_list.append(nn.Sequential(*num_3x3_maxpool*[nn.MaxPool2d(kernel_size=3, stride=1, padding=1)]))
+            #max_pool_module_list[-1] = nn.ModuleList(max_pool_module_list[-1])
+        self.m = nn.ModuleList(max_pool_module_list)
 
     def forward(self, x):
         x = self.cv1(x)
-        with warnings.catch_warnings():
-            warnings.simplefilter('ignore')  # suppress torch 1.9.0 max_pool2d() warning
-            return self.cv2(torch.cat([x] + [m(x) for m in self.m], 1))
+        return self.cv2(torch.cat([x] + [m(x) for m in self.m], 1))
 
 
 class SPPF(nn.Module):
