@@ -67,8 +67,7 @@
 | Another Environment | Google Colab for Train |
 
 ## Dataset
-Describe your dataset information here. Provide a screenshot for some of your dataset samples (for example, if you're using CIFAR10 dataset, then show an image for each class).
-Pengumpulan Dataset didapat dari hasil kolektif foto-foto yang diambil dari internet, video dari yt maupun hasil pengambilan foto dari kamera secara langsung, berikut salah satu image yang kami kumpulkan, yang berasal dari internet, maupun diambil secara langsung.
+The dataset collection process was carried out through a collective effort that involved taking photos from various sources, including images found on the internet, videos from the YouTube platform, and photos taken directly using a camera. In order to provide an overview, we include an example of one of the images that has been collected, which includes photos obtained online or through direct shooting.
 
 ### Example Image for Dataset
 | | | |
@@ -147,12 +146,12 @@ Di dalam segmen ini, kami secara rinci mendokumentasikan serangkaian lapisan (la
 | last | yolov5s-lite | Conv, [512, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [512, False] | Conv, [256, 1, 1] | nn.Upsample, [None, 2, 'nearest'] | Concat, [1] | BottleneckCSP, [256, False] | GhostConv, [256, 3, 2] | Concat, [1] | BottleneckCSP, [512, False] | GhostConv, [512, 3, 2] | Concat, [1] | BottleneckCSP, [1024, False] | [17, 20, 23], 1, Detect, [nc, anchors] |
 
 #### Precision and Validate
-Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan pertama hingga final model, dengan epoch 100 :
+Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan pertama hingga final model, dengan epoch 300 :
 | no. ablation | model | val_precision | val_recall |
 | --- | --- | --- | --- |
 | 1. | yolov5s-lite | 93.10% | 88.85% | 
 | 2. | yolov5s-lite | 89.68% | 86.57% |
-| last | yolov5s-lite | 92.82% | 89.85% |
+| last | yolov5s-lite | 95.29% | 90.47% |
 
 #### 3. Training/Validation Curve
 Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
@@ -185,7 +184,7 @@ Describe and show how you deploy this project (e.g., using Streamlit or Flask), 
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: https://...
+- Link: [Our Presentation Deck TSixV](https://www.canva.com/design/DAF1gZBiWCE/ZBVEZ_8CgNBy8CK7QybmOA/edit?utm_content=DAF1gZBiWCE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ### Business Model Canvas
 Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
@@ -205,16 +204,65 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
 - Link: [YOLOv5 Training video from Texas Instruments](https://training.ti.com/process-efficient-object-detection-using-yolov5-and-tda4x-processors)
 
 ## Additional Comments
-Provide your team's additional comments or final remarks for this project. For example,
-1. ...
-2. ...
-3. ...
+1. The model development process in YOLOv5s has improved as far as precision and accuracy, but we recognize the potential to continue optimizing these models. We feel that by applying custom convolutional layers that have been tested a lot out there, both on the backbone and the head, we can achieve further improvements in prediction quality.
 
-## How to Cite
-If you find this project useful, we'd grateful if you cite this repository:
+2. The integration of GhostConv and BottleneckCSP became an integral part of our approach to achieving a lighter model. Our main focus was to ensure the model could perform well in the car detection task, which was the main focus of our project. Although this model has provided satisfactory results for car detection, we realize that this implementation may be less effective when faced with more complex object detection tasks. Therefore, further exploration of these layers is expected to provide a deeper understanding of their potential and limitations.
+
+## Citation
 ```
-@article{
-...
+@inproceedings{ghostnet,
+  title={GhostNet: More Features from Cheap Operations},
+  author={Han, Kai and Wang, Yunhe and Tian, Qi and Guo, Jianyuan and Xu, Chunjing and Xu, Chang},
+  booktitle={CVPR},
+  year={2020}
+}
+@inproceedings{tinynet,
+  title={Model Rubik’s Cube: Twisting Resolution, Depth and Width for TinyNets},
+  author={Han, Kai and Wang, Yunhe and Zhang, Qiulin and Zhang, Wei and Xu, Chunjing and Zhang, Tong},
+  booktitle={NeurIPS},
+  year={2020}
+}
+@inproceedings{tnt,
+  title={Transformer in transformer},
+  author={Han, Kai and Xiao, An and Wu, Enhua and Guo, Jianyuan and Xu, Chunjing and Wang, Yunhe},
+  booktitle={NeurIPS},
+  year={2021}
+}
+@inproceedings{legonet,
+  title={LegoNet: Efficient Convolutional Neural Networks with Lego Filters},
+  author={Yang, Zhaohui and Wang, Yunhe and Liu, Chuanjian and Chen, Hanting and Xu, Chunjing and Shi, Boxin and Xu, Chao and Xu, Chang},
+  booktitle={ICML},
+  year={2019}
+}
+@inproceedings{wang2018learning,
+  title={Learning versatile filters for efficient convolutional neural networks},
+  author={Wang, Yunhe and Xu, Chang and Chunjing, XU and Xu, Chao and Tao, Dacheng},
+  booktitle={NeurIPS},
+  year={2018}
+}
+@inproceedings{tang2021augmented,
+  title={Augmented shortcuts for vision transformers},
+  author={Tang, Yehui and Han, Kai and Xu, Chang and Xiao, An and Deng, Yiping and Xu, Chao and Wang, Yunhe},
+  booktitle={NeurIPS},
+  year={2021}
+}
+@inproceedings{tang2022image,
+  title={An Image Patch is a Wave: Phase-Aware Vision MLP},
+  author={Tang, Yehui and Han, Kai and Guo, Jianyuan and Xu, Chang and Li, Yanxi and Xu, Chao and Wang, Yunhe},
+  booktitle={CVPR},
+  year={2022}
+}
+@inproceedings{han2022vig,
+  title={Vision GNN: An Image is Worth Graph of Nodes}, 
+  author={Kai Han and Yunhe Wang and Jianyuan Guo and Yehui Tang and Enhua Wu},
+  booktitle={NeurIPS},
+  year={2022}
+}
+@article{tang2022ghostnetv2,
+  title={GhostNetV2: Enhance Cheap Operation with Long-Range Attention},
+  author={Tang, Yehui and Han, Kai and Guo, Jianyuan and Xu, Chang and Xu, Chao and Wang, Yunhe},
+  journal={arXiv preprint arXiv:2211.12905},
+  year={2022}
 }
 ```
 
@@ -222,4 +270,4 @@ If you find this project useful, we'd grateful if you cite this repository:
 For academic and non-commercial use only.
 
 ## Acknowledgement
-This project entitled <b>"SPARK ()"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
+This project entitled <b>"SPARK (Space Parking Analyzer with Real-time Knowledge)"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
