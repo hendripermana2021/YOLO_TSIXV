@@ -67,7 +67,7 @@
 | Another Environment | Google Colab for Train |
 
 ## Dataset
-The dataset collection process was carried out through a collective effort that involved taking photos from various sources, including images found on the internet, videos from the YouTube platform, and photos taken directly using a camera. In order to provide an overview, we include an example of one of the images that has been collected, which includes photos obtained online or through direct shooting.
+The dataset collection process was carried out through a collective effort that involved taking photos from various sources, including images found on the internet, videos from the YouTube platform, and photos taken directly using a camera. In order to provide an overview, we include an example of one of the images that has been collected, which includes photos obtained online or through direct shooting. and annotation with Roboflow
 
 ### Example Image for Dataset
 | | | |
