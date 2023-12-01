@@ -77,8 +77,7 @@ The dataset collection process was carried out through a collective effort that 
 
 ## Results
 ### Model Performance
-Describe all results found in your final project experiments, including hyperparameters tuning and architecture modification performances. Put it into table format. Please show pictures (of model accuracy, loss, etc.) for more clarity.
-Pada dasarnya YOLOv5 sudah memiliki performa yang sangat baik, dan sangat powerfull pada versi officialnya, namun hasil yang kami dapatkan ketika melakukan perubahan pada bagian head dan backbone pada konfigurasi layer dan parameter yang digunakan, dengan tujuan meningkatkan akurasi dan performa yang lebih ringan ketika dijalankan, karena task yang akan kami kerjakan dan diimplementasikan kedalam modeling tidaklah banyak yaitu hanya mendeteksi mobil, sehingga kami mengubah focus dan SPP Modul,
+Fundamentally, YOLOv5 has achieved very outstanding performance and has become very powerful in its official version. However, our exploration results show that when we made adjustments to the head and backbone in the layer configuration and parameters, we managed to achieve significant improvements in accuracy and more efficient model performance when running. This was primarily done by focusing the changes on the specific task we wanted to work on, namely car detection. We have directed the modifications towards improving the focus and SPP (Spatial Pyramid Pooling) module, aiming to ensure that our model provides optimal results and efficiently handles the task specifications.
 
 ### Adding Parameters tuning for enhance model (adding to configuration yaml)
 <p align="center"><img width="500" src="models/parameterTuning.png"></p>
@@ -123,8 +122,7 @@ These parameters play a crucial role in shaping the training process and influen
 | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 #### 2. Ablation Study
-Any improvements or modifications of your base model, should be summarized in this table. Feel free to adjust the columns in the table below.
-Di dalam segmen ini, kami secara rinci mendokumentasikan serangkaian lapisan (layer) yang kami terapkan selama percobaan kami, dengan tujuan untuk mencapai hasil akurasi paling optimal. Namun sebelumnya kami ingin menjelaskan istilah/ simbol yang akan kami gunakan dalam penjelasan pada segment kali ini :
+In this segment, we carefully detail the series of layers that we applied during our experiments, with the main goal of achieving the most optimal accuracy results. As a first step, we will provide an in-depth explanation of the terms and symbols that we will use in the explanation in this section. This is done with the intention that readers have a better understanding before entering a detailed explanation regarding the layer configuration in our experiments.
 - f = filter
 - k = kernel 
 - s = stride
@@ -151,7 +149,7 @@ Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan
 | --- | --- | --- | --- |
 | 1. | yolov5s-lite | 93.10% | 88.85% | 
 | 2. | yolov5s-lite | 89.68% | 86.57% |
-| last | yolov5s-lite | 95.29% | 90.47% |
+| last | yolov5s-lite | 94.29% | 90.47% |
 
 #### 3. Training/Validation Curve
 Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
@@ -168,6 +166,11 @@ Insert an image regarding your training and evaluation performances (especially 
  
 ### Testing
 Show some implementations (demos) of this model. Show **at least 10 images** of how your model performs on the testing data.
+
+  ```
+  python detect.py --weights /content/YOLO_TSIXV/runs/train/weights/best.pt --img 256 --conf 0.4 --source pathImages
+  ```
+
 * Results Image Detection :
   
 | img | img | img |
