@@ -7,7 +7,6 @@ import time
 import gspread
 import schedule
 import streamlit as st
-from oauth2client.service_account import ServiceAccountCredentials
 from yolov5.models.experimental import attempt_load
 from yolov5.utils.general import non_max_suppression
 

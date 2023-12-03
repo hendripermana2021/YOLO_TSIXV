@@ -1,0 +1,25 @@
+[data-testid="stSidebar"] {
+    background-image: url(https://github.com/euclideands/dashboard_remosto/blob/main/Transparent_Horizontal.png?raw=true);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: 19px 33px;
+}
+
+
+.metric-container {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background: #FFFF;
+    padding: 25px;
+    border-radius: 8px;
+    border: 2px solid black; /* Add this line for a black border */
+}
+
+
+.metric-label{
+    font-size: 30px;
+    font-weight: bold;
+}
+

@@ -7,25 +7,37 @@ import time
 import streamlit as st
 from yolov5.models.experimental import attempt_load
 from yolov5.utils.general import non_max_suppression
+import tempfile
+import os
 
-# Video feed
+# File uploader and video display
 uploaded_file = st.file_uploader("Choose a video file", type=["mp4", "avi"])
+cap = None
+
 if uploaded_file is not None:
-    cap = cv2.VideoCapture(uploaded_file)
-else:
-    st.warning("Please upload a video file.")
-    st.stop()
+    # Save the uploaded file temporarily
+    temp_file = tempfile.NamedTemporaryFile(delete=False)
+    temp_file.write(uploaded_file.read())
+    uploaded_file.seek(0)
 
-net = cv2.dnn.readNetFromONNX("C:\\Users\\M Fathurrahman\\Documents\\computer-vision-SParking (1)\\computer-vision-SParking\\best (4).onnx")
-classes = ['mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil']
-frameSize = [852, 480]
-cv2_fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-video_path = "Video\Hasil/"
-timestamp_video = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-out = cv2.VideoWriter(video_path + f"Video_{timestamp_video}.mp4", cv2_fourcc, cap.get(cv2.CAP_PROP_FPS) - 10, frameSize)
+    # Open the video file with cv2.VideoCapture
+    cap = cv2.VideoCapture(temp_file.name)
 
-with open('CarParkPos', 'rb') as f:
-    posList = pickle.load(f)
+    # YOLOv5 initialization
+    net = cv2.dnn.readNetFromONNX("C:\\Users\\M Fathurrahman\\Documents\\computer-vision-SParking (1)\\computer-vision-SParking\\best (4).onnx")
+    classes = ['mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil']
+    
+    # Video output setup
+    frameSize = [852, 480]
+    cv2_fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    video_path = "Video\Hasil/"
+    timestamp_video = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    out = cv2.VideoWriter(video_path + f"Video_{timestamp_video}.mp4", cv2_fourcc, cap.get(cv2.CAP_PROP_FPS) - 10, frameSize)
+
+    # Load parking positions from a file
+    with open('CarParkPos', 'rb') as f:
+        posList = pickle.load(f)
+
 
 # Function to check parking space
 def checkParkingSpace(imgPro, car_boxes):  # Fungsion local
@@ -61,17 +73,19 @@ def checkParkingSpace(imgPro, car_boxes):  # Fungsion local
     cvzone.putTextRect(img, f'Cars: {len(posList)-spaceCounter}', (200, 50), scale=0.5, thickness=1, offset=10, colorR=(102,7,0)) 
 
 
-# Loop for processing video frames
-while True:
+while cap is not None:
     success, img = cap.read()
     if img is None:
         break
 
+    # Resize the frame
     img = cv2.resize(img, (852, 480))
-    
+
+    # YOLOv5 detection
     blob = cv2.dnn.blobFromImage(img, scalefactor=1/255, size=(640, 640), mean=[0, 0, 0], swapRB=True, crop=False)
     net.setInput(blob)
     detections = net.forward()[0]
+
 
     classes_ids = []
     confidences = []
@@ -121,11 +135,7 @@ while True:
 
     time.sleep(1)
     out.write(img)
-    
+
     # Display the processed frame in Streamlit
     st.image(img, channels="BGR", use_column_width=True)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-out.release()
