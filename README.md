@@ -3,9 +3,9 @@
 ## Project Description
 (Smart Monitoring Parking) is a project that aims to develop an intelligent system that can detect and analyze empty parking spaces. In a dense urban environment, finding a parking space can be a challenging and time-consuming task. SPARK is designed to provide an efficient, real-time solution to address these problems by leveraging computer vision and artificial intelligence technologies. uses YOLO as Object Detection modeling which will be applied to application projects, but there are several modifications made to the architecture, with the aim of developing a model that is more efficient, precise and lighter.
 
-* YOLOV5-ti-lite is a version of YOLOV5 from TI for efficient edge deployment. This naming convention is chosen to avoid conflict with future release of YOLOV5-lite models from Ultralytics.
+1. YOLOV5-ti-lite is a version of YOLOV5 from TI for efficient edge deployment. This naming convention is chosen to avoid conflict with future release of YOLOV5-lite models from Ultralytics.
 
-* Here is a brief description of changes that were made to get yolov5-ti-lite from yolov5:
+2. Here is a brief description of changes that were made to get yolov5-ti-lite from yolov5:
     * YOLOV5 introduces a Focus layer as the very first layer of the network. This replaces the first few heavy convolution layers that are present in YOLOv3. It reduces the complexity of the n/w by 7% and training time by 15%. However, the slice operations in Focus layer are not embedded friendly and hence we replace it with a light-weight convolution layer. Here is a pictorial description of the changes from YOLOv3 to YOLOv5 to YOLOv5-ti-lite:
     <p align="center"><img width="800" src="models/Focus.png"></p>     
 
@@ -149,7 +149,7 @@ Berikut hasil yang didapat dari setiap pengujian dari ablasi pertama / percobaan
 | --- | --- | --- | --- |
 | 1. | yolov5s-lite | 93.10% | 88.85% | 
 | 2. | yolov5s-lite | 89.68% | 86.57% |
-| last | yolov5s-lite | 94.29% | 90.47% |
+| last | yolov5s-lite | 96.25% | 97.18% |
 
 #### 3. Training/Validation Curve
 Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
@@ -209,8 +209,8 @@ The Business Model Canvas (BMC) is a framework used to visualize, evaluate and d
 </details>
 
 ### Short Video
-Agar teman-teman sekalian dapat mengetahui, latarbelakang kenapa kami ingin membuat project ini, berikut kami kirimkan link videonya :)
-- Link: https://...
+To provide further understanding to all of you regarding the background of why we decided to create this project, we are sharing the explanation video link :)
+- Link: [Our Background Video](https://drive.google.com/file/d/1yyxjyNlOAdlj-xY3vgQ1OjikVFt-KCE0/view?usp=sharing)
 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
@@ -241,36 +241,6 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
   author={Han, Kai and Wang, Yunhe and Zhang, Qiulin and Zhang, Wei and Xu, Chunjing and Zhang, Tong},
   booktitle={NeurIPS},
   year={2020}
-}
-@inproceedings{tnt,
-  title={Transformer in transformer},
-  author={Han, Kai and Xiao, An and Wu, Enhua and Guo, Jianyuan and Xu, Chunjing and Wang, Yunhe},
-  booktitle={NeurIPS},
-  year={2021}
-}
-@inproceedings{legonet,
-  title={LegoNet: Efficient Convolutional Neural Networks with Lego Filters},
-  author={Yang, Zhaohui and Wang, Yunhe and Liu, Chuanjian and Chen, Hanting and Xu, Chunjing and Shi, Boxin and Xu, Chao and Xu, Chang},
-  booktitle={ICML},
-  year={2019}
-}
-@inproceedings{wang2018learning,
-  title={Learning versatile filters for efficient convolutional neural networks},
-  author={Wang, Yunhe and Xu, Chang and Chunjing, XU and Xu, Chao and Tao, Dacheng},
-  booktitle={NeurIPS},
-  year={2018}
-}
-@inproceedings{tang2021augmented,
-  title={Augmented shortcuts for vision transformers},
-  author={Tang, Yehui and Han, Kai and Xu, Chang and Xiao, An and Deng, Yiping and Xu, Chao and Wang, Yunhe},
-  booktitle={NeurIPS},
-  year={2021}
-}
-@inproceedings{tang2022image,
-  title={An Image Patch is a Wave: Phase-Aware Vision MLP},
-  author={Tang, Yehui and Han, Kai and Guo, Jianyuan and Xu, Chang and Li, Yanxi and Xu, Chao and Wang, Yunhe},
-  booktitle={CVPR},
-  year={2022}
 }
 @inproceedings{han2022vig,
   title={Vision GNN: An Image is Worth Graph of Nodes}, 
