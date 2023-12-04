@@ -182,6 +182,24 @@ Show some implementations (demos) of this model. Show **at least 10 images** of 
 
 ### Deployment (Optional)
 Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
+Tahap selanjutnya, ialah tahap deployment, publikasi project online yang telah kami kerjakan, package yang kami gunakan untuk tahap deployment ialah streamlit, kenapa streamlit, karena streamlit beberapa keunggulan yang membuatnya menjadi pilihan yang populer, terutama dalam konteks proyek yang fokus pada tampilan dan interaksi pengguna, yaitu : 
+   1. Mudah digunakan
+   2. Cepat untuk membuat aplikasi prototyping
+   3. Interaktif dan Realtime
+   4. Dukungan untuk Data Science dan Machine Learning
+   5. Ringan dan Minimalis
+
+Untuk hasil akhir deployment dari tim kami, kami membuat 2 tampilan untuk digunakan oleh dua role pengguna yang berbeda, yaitu **ADMIN** dan juga **PENGGUNA**. Berikut hasil tampilan deployment yang telah kami kerjakan :
+| TAMPILAN ADMIN | TAMPILAN PENGGUNA |
+| --- | --- |
+| <p align="center"><img width="500" src="data/images/pengelola_deploy.jpeg"></p> | <p align="center"><img width="500" src="data/images/pengunjung_deploy.jpeg"></p> |
+| <p align="center"><img width="500" src="data/images/pengelola_deploy1.jpeg"></p> | <p align="center"><img width="500" src="data/images/pengunjung_deploy1.jpeg"></p> |
+
+<details>
+  <summary>Click for See our BMC</summary>
+  <img src="data/images/BMC1.jpg" alt="Page1"/>
+  <img src="data/images/BMC2.jpg" alt="Page2"/>
+
 
 
 
