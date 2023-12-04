@@ -118,7 +118,7 @@ These parameters play a crucial role in shaping the training process and influen
 | model | epoch | learning_rate | batch_size | optimizer | val_loss | val_precision | val_recall | mAP.0,5 | mAP.0,5:0,95 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | yolov5s-lite | 100 |  0.001 | 64 | Adam | 0.0059 | 92.82% | 89.85% | 93.44% | 67.74% |
-| yolov5s-lite | 300 | 0.001 | 64 | Adam | 0.0037 | 94.29% | 90.47% | 95.29% | 75.20% |
+| yolov5s-lite | 300 | 0.001 | 64 | Adam | 0.0037 | 96.25% | 97.18% | 97.06% | 71.96% |
 | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 #### 2. Ablation Study
@@ -182,33 +182,26 @@ Show some implementations (demos) of this model. Show **at least 10 images** of 
 
 ### Deployment (Optional)
 Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
-Tahap selanjutnya, ialah tahap deployment, publikasi project online yang telah kami kerjakan, package yang kami gunakan untuk tahap deployment ialah streamlit, kenapa streamlit, karena streamlit beberapa keunggulan yang membuatnya menjadi pilihan yang populer, terutama dalam konteks proyek yang fokus pada tampilan dan interaksi pengguna, yaitu : 
-   1. Mudah digunakan
-   2. Cepat untuk membuat aplikasi prototyping
-   3. Interaktif dan Realtime
-   4. Dukungan untuk Data Science dan Machine Learning
-   5. Ringan dan Minimalis
+The next stage is deployment, where the project we have developed will be published online. We chose Streamlit as a package for the deployment phase because this framework has a number of advantages that make it a popular choice, especially in projects that emphasize display and user interaction. Some of the advantages of Streamlit include: 
+   1. Easy to use
+   2. Quick to create prototyping applications
+   3. Interactive and Realtime
+   4. Support for Data Science and Machine Learning
+   5. Light and minimalist
 
-Untuk hasil akhir deployment dari tim kami, kami membuat 2 tampilan untuk digunakan oleh dua role pengguna yang berbeda, yaitu **ADMIN** dan juga **PENGGUNA**. Berikut hasil tampilan deployment yang telah kami kerjakan :
-| TAMPILAN ADMIN | TAMPILAN PENGGUNA |
+For the final deployment results from our team, we created 2 views to be used by two different user roles, namely **ADMIN** and also **USER**. Following are the results of the deployment that we have worked on:
+| ADMIN INTERFACE | USER INTERFACE |
 | --- | --- |
 | <p align="center"><img width="500" src="data/images/pengelola_deploy.jpeg"></p> | <p align="center"><img width="500" src="data/images/pengunjung_deploy.jpeg"></p> |
 | <p align="center"><img width="500" src="data/images/pengelola_deploy1.jpeg"></p> | <p align="center"><img width="500" src="data/images/pengunjung_deploy1.jpeg"></p> |
 
-<details>
-  <summary>Click for See our BMC</summary>
-  <img src="data/images/BMC1.jpg" alt="Page1"/>
-  <img src="data/images/BMC2.jpg" alt="Page2"/>
-
-
-
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: [Our Presentation Deck TSixV](https://..)
+- Link: [Our Presentation Deck TSixV](https://drive.google.com/file/d/1o5NL0zxyzu65CraSBoU806KWBeZEn7ZC/view?usp=sharing)
 
 ### Business Model Canvas
-Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
+The Business Model Canvas (BMC) is a framework used to visualize, evaluate and develop business models with the aim of achieving value, both from a social and financial perspective, and other aspects. Therefore, we have included BMC in our project as a business model that not only adds value financially, but also socially. This also functions as an identification tool to assess the extent to which the business model we have designed provides significant value for business development.
 <details>
   <summary>Click for See our BMC</summary>
   <img src="data/images/BMC1.jpg" alt="Page1"/>
@@ -216,7 +209,7 @@ Provide a screenshot of your Business Model Canvas (BMC). Give some explanations
 </details>
 
 ### Short Video
-Provide a link to your short video, that should includes the project background and how it works.
+Agar teman-teman sekalian dapat mengetahui, latarbelakang kenapa kami ingin membuat project ini, berikut kami kirimkan link videonya :)
 - Link: https://...
 
 ## References
