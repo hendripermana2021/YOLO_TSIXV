@@ -113,7 +113,7 @@ These parameters play a crucial role in shaping the training process and influen
 | model | epoch | learning_rate | batch_size | optimizer | val_loss | val_precision | val_recall | mAP.0,5 | mAP.0,5:0,95 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | yolov5s-lite | 100 |  0.001 | 64 | Adam | 0.0059 | 92.82% | 89.85% | 93.44% | 67.74% |
-| yolov5s-lite | 300 | 0.001 | 64 | Adam | 0.0037 | 96.25% | 97.18% | 97.06% | 71.96% |
+| yolov5s-lite | 300 | 0.001 | 64 | Adam | 0.0037 | 94.25% | 90.18% | 95.29% | 75.96% |
 | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 #### 2. Ablation Study
@@ -176,7 +176,6 @@ Show some implementations (demos) of this model. Show **at least 10 images** of 
 | <p align="center"><img width="500" src="data/images/val9.jpg"></p> | <img width="500" src="data/images/val10.jpg"></p> | <img width="500" src="data/images/val11.jpg"></p> |
 
 ### Deployment (Optional)
-Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
 The next stage is deployment, where the project we have developed will be published online. We chose Streamlit as a package for the deployment phase because this framework has a number of advantages that make it a popular choice, especially in projects that emphasize display and user interaction. Some of the advantages of Streamlit include: 
    1. Easy to use
    2. Quick to create prototyping applications
