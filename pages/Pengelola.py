@@ -9,6 +9,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 width, height = 15, 30
+with open('pages/style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 try:
     with open('CarParkPos', 'rb') as f:
@@ -35,6 +37,11 @@ def update_pos_list(x, y):
     global posList
     posList.append((x, y))
 
+def save_pos_list(pos_list):
+    with open('shared_data.txt', 'w') as f:
+        for pos in pos_list:
+            f.write(f"{pos[0]},{pos[1]}\n")
+
 # Create Streamlit app
 st.title("Smart Parking System")
 
@@ -43,10 +50,6 @@ if uploaded_file is not None:
     file_bytes = uploaded_file.read()
     nparr = np.frombuffer(file_bytes, np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-
-    # Simpan file yang diunggah ke penyimpanan bersama
-    with open('shared_image.jpg', 'wb') as f:
-        f.write(uploaded_file.read())
 
     # Clear boxes button
     if st.button("Clear Boxes (Press 'x')"):
@@ -78,3 +81,8 @@ if uploaded_file is not None:
     # Save posList to file
     with open('CarParkPos', 'wb') as f:
         pickle.dump(posList, f)
+    save_pos_list(posList)
+
+    # Save the image bytes to a shared file
+    with open('shared_image.jpg', 'wb') as f:
+        f.write(file_bytes)

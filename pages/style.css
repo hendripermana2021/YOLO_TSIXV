@@ -1,6 +1,6 @@
 [data-testid="stSidebar"] {
-    background-image: url('logo-tsisxv.png');
-    background-size: 200px;
+    background-image: url(https://raw.githubusercontent.com/fathur071203/TSixVCode/main/logo-tsixv.png);
+    background-size: 70px;
     background-repeat: no-repeat;
     background-position: 19px 33px;
     margin-bottom: 25px;

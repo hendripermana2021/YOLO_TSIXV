@@ -14,25 +14,32 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+# Function to load parking positions from the shared file
+def load_pos_list():
+    with open('shared_data.txt', 'r') as f:
+        pos_list = [tuple(map(int, line.strip().split(','))) for line in f]
+    return pos_list
 
-# File uploader for image
-uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
-img = None
+# Load parking positions from the shared file
+posList = load_pos_list()
 
-if uploaded_file is not None:
-    # Read the uploaded image
-    img = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
+# Load the image bytes from the shared file
+with open('shared_image.jpg', 'rb') as f:
+    file_bytes = f.read()
 
+# Use the image bytes to create the image
+img = cv2.imdecode(np.frombuffer(file_bytes, np.uint8), cv2.IMREAD_COLOR)
+
+# # File uploader for image
+# uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
+# img = None
+
+if img is not None:
     # YOLOv5 initialization
     net = cv2.dnn.readNetFromONNX("C:\\Users\\M Fathurrahman\\Documents\\computer-vision-SParking (1)\\computer-vision-SParking\\TSixV2.onnx")
     classes = ['mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil', 'mobil']
 
-    # Load parking positions from a file
-    with open('CarParkPos', 'rb') as f:
-        posList = pickle.load(f)
 
-    # Resize the image
-    img = cv2.resize(img, (852, 480))
 
     # YOLOv5 detection
     blob = cv2.dnn.blobFromImage(img, scalefactor=1/255, size=(640, 640), mean=[0, 0, 0], swapRB=True, crop=False)
